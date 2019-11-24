@@ -1,6 +1,5 @@
 ![GitHub Logo](/images/logoece.jpg)
 ## ECE-NodeJS-Project Lab 1 
----
 Lab 1 allows to create:
   *Hello world project
   *HTTP server
