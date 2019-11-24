@@ -1,4 +1,4 @@
-## ECE-NodeJS-Project Lab 1 ![GitHub Logo](/images/logo ece.jpg)
+## ECE-NodeJS-Project Lab 1 ![GitHub Logo](/images/logoece.jpg)
 ---
 Lab 1 allows to create:
   *Hello world project
