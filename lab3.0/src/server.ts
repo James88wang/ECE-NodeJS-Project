@@ -23,29 +23,35 @@ app.post('/metrics/:id', (req: any, res: any) => {
   })
 })
 
-app.get('/metrics', (req: any, res: any) => {
-  dbMet.getAll( 
+app.get('/metrics/getAll', (req: any, res: any) => {
+  dbMet.getAll(
     (
       err: Error | null, result?: any
     ) => {
       if (err) throw err
       console.log("we try to get All metrics")
       res.status(200).send(result)
-  })
+    })
 })
 
-/*app.get('/metric/:key', (req: any, res: any) => {
-  dbMet.getOne( 
+app.get('/metrics/getOne/:key', (req: any, res: any) => {
+  dbMet.getOne(req.params.key,
     (
-      req.params.key,
-      (err: Error | null, result?: number) 
+      err: Error | null, result?: any
     ) => {
-      if (err) {throw err}
-      console.log("we try to get one metric by key")
+      console.log("we try to get one metric")
       res.status(200).send(result)
-  })
-})*/  
+    })
+})
 
+app.get('/metrics/delOne/:key', (req: any, res: any) => {
+  dbMet.delOne(req.params.key,
+    (err: Error | null) => {
+
+      console.log("we try to delete a metric")
+      res.status(200).send('Delete successful')
+    })
+})
 
 app.get('/', (req: any, res: any) => {
   res.write('Hello world')
@@ -53,7 +59,7 @@ app.get('/', (req: any, res: any) => {
 })
 
 app.get('/hello/:name', (req: any, res: any) => {
-  res.render('hello.ejs', {name: req.params.name})
+  res.render('hello.ejs', { name: req.params.name })
 })
 
 app.get('/metrics.json', (req: any, res: any) => {
